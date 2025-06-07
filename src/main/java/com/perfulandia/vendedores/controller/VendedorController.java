@@ -23,14 +23,14 @@ public class VendedorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Vendedor> obtenerVendedor(@PathVariable Integer id) {
+    public ResponseEntity<Vendedor> obtenerVendedor(@PathVariable Long id) {
         return vendedorService.obtenerVendedorPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Vendedor> actualizarVendedor(@PathVariable Integer id, @RequestBody Vendedor vendedor) {
+    public ResponseEntity<Vendedor> actualizarVendedor(@PathVariable Long id, @RequestBody Vendedor vendedor) {
         try {
             Vendedor actualizado = vendedorService.actualizarVendedor(id, vendedor);
             return ResponseEntity.ok(actualizado);

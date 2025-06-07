@@ -10,9 +10,10 @@ import lombok.*;
 @AllArgsConstructor
 
 public class Vendedor {
-    @Id
+     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "id_vendedor")
+    private Integer idVendedor;
 
     @Column(name = "usuario_id")
     private Long usuarioId;
@@ -21,5 +22,12 @@ public class Vendedor {
 
     @Column(name = "meta_mensual")
     private Double metaMensual;
+
+    private String nombre;
+
+    private String rut;
+
+    @Column(name = "area_ventas")
+    private String areaVentas;
 
 }
